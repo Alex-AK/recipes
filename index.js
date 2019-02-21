@@ -14,7 +14,8 @@ server.use(morgan('dev'));
 // server.use('/api/_', _Router);
 
 server.get('/test', (req, res) => {
-  db.get()
+  server
+    .get()
     .then(res => res.status(200).json({ success: true, res }))
     .catch(err =>
       res.status(500).json({

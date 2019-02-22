@@ -7,7 +7,10 @@ module.exports = {
 };
 
 function get() {
-  return db('recipe');
+  return db('dish as d')
+    .join('recipe as r')
+    .select('r.id', 'r.name as recipe', 'd.name')
+    .orderBy('r.id');
 }
 
 async function getById(id) {

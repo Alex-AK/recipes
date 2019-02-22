@@ -30,3 +30,9 @@ function add(recipe) {
     .insert(recipe)
     .then(ids => getById(ids[0]));
 }
+
+// getRecipe(id)
+// The recipe should include:
+// name of the dish.
+// name of the recipe.
+// the list of ingredients with the quantity.

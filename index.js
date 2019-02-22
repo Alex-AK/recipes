@@ -36,7 +36,7 @@ server.get('/api/dish/:id', (req, res) => {
       if (!dish) {
         res.status(404).json({ success: false, message: 'id not found.' });
       } else {
-        res.status(200).json({ success: true, result: dish });
+        res.status(200).json({ success: true, data: dish });
       }
     })
 
@@ -83,11 +83,11 @@ server.get('/api/recipe/:id', (req, res) => {
   const id = req.params.id;
   recipe
     .getById(id)
-    .then(dish => {
+    .then(data => {
       if (!dish) {
         res.status(404).json({ success: false, message: 'id not found.' });
       } else {
-        res.status(200).json({ success: true, dish });
+        res.status(200).json({ success: true, data });
       }
     })
 

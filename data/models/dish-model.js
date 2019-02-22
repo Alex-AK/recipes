@@ -19,14 +19,7 @@ async function getById(id) {
     .where('r.dish_id', id)
     .orderBy('r.id');
 
-  const holder = { dish, recipes };
-
-  return holder;
-  // return db('dish as d')
-  //   .join('recipe as r', 'r.dish_id', '=', `d.${id}`)
-  //   .select('r.name as recipe, r.id as id')
-  //   .where('d.id', id)
-  //   .groupBy('r.id');
+  return { dish, recipes };
 }
 
 function add(dish) {

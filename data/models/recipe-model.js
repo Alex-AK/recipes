@@ -10,10 +10,15 @@ function get() {
   return db('recipe');
 }
 
-function getById(id) {
-  return db('recipe')
+async function getById(id) {
+  const recipe = await db('recipe')
+    .where(`dish_id`, '=', id)
+    .select('name', 'instructions');
+  const dish = await db('dish')
     .where({ id })
-    .first();
+    .select('name');
+
+  return { dish, recipe };
 }
 
 function add(recipe) {

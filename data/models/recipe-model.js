@@ -8,7 +8,7 @@ module.exports = {
 
 function get() {
   return db('dish as d')
-    .join('recipe as r')
+    .join('recipe as r', 'd.id', 'r.dish_id')
     .select('r.id', 'r.name as recipe', 'd.name as dishName')
     .groupBy('r.id')
     .orderBy('r.id');

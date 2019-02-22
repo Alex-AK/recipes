@@ -70,7 +70,7 @@ server.post('/api/dish', (req, res) => {
 server.get('/api/recipe', (req, res) => {
   recipe
     .get()
-    .then(dishes => res.status(200).json({ success: true, dishes }))
+    .then(recipes => res.status(200).json({ success: true, recipes }))
     .catch(err =>
       res.status(500).json({
         success: false,
